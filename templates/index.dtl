@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>NulTV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=""/>
+    <meta name="keywords" content="nultv, nul, tv, public, video clips, post, videoblog, community site, videos, clips, online news, america news, news america"/>
+    <link rel="shortcut icon" href="/images/favicon.ico"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="http://vjs.zencdn.net/4.1/video-js.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <!--<script src="/js/angular.min.js"></script>
+    <script src="/js/controllers.js"></script>
+    <script src="/js/flowplayer-3.2.13.min.js"></script>
+    <script type='text/javascript' src="http://vjs.zencdn.net/4.1/video.js"></script>
+    <script src="/js/ui-bootstrap-tpls-0.6.0.js"></script>-->
+    
+    <script src="/js/play_video.js"></script>
+    <script type="text/javascript" src="http://jwpsrv.com/library/5V3tOP97EeK2SxIxOUCPzg.js"></script>
+<script type="text/javascript">jwplayer.key="L0SAYMTJJs/IIkeci5tG4vgIMGHAc6YFBtmJaA==";</script></script>
+    <!--<script src="/js/flowplayer-3.2.13.min.js"></script> 
+    <script src="/js/ui-bootstrap-tpls-0.6.0.js"></script>-->
+  <script type="text/javascript" src="/js/jquery-1.9.1.js"></script>
+  </head>
+  <body>
+  <!-- index.html -->
+    <div class="container">
+      <div class="navgation">
+        <nav>
+          <a href="/" class="active"><span>Now!</span></a>
+          <span class="separator"></span>
+          <a href="/p/World?page=1" ><span>World News</span></a>
+          <span class="separator"></span>
+          <a href="/p/US?page=1"><span>US</span></a>
+          <span class="separator"></span>
+          <a href="/p/Politics?page=1"><span>Politics</span></a>
+          <span class="separator"></span>
+          <a href="/p/Entertainment?page=1"><span>Entertainment</span></a>
+          <span class="separator"></span>
+          <a href="/p/Markets?page=1"><span>Markets</span></a>
+          <span class="separator"></span>
+          <a href="/contactus"><span>Contact Us</span></a>
+          <span class="separator"></span>
+          <a href="/p/Money?page=1"><span>Money</span></a>
+        </nav>
+        
+      </div>
+      <!--Navgation End-->
+
+      <header>
+        <span class="logo"><a href="/" title="NulTv"><img src="/images/nultv-logo.png"/></a></span>
+        
+        <div class="row pullright">
+          <!--/* Switch v3.8.5 - Nultv.com - Nultv.com - 728x90 - 728x90 */-->
+          <script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=728X90&cwpid=557677&cwwidth=728&cwheight=90&cwpnet=1&cwtagid=197730"></script>
+        </div>
+      </header>
+      <!--Header End-->
+
+      <div class="banner">
+        
+      </div>
+      <!--banner End-->
+
+      <article>
+        <aside class="width67">
+          <div class="slideshow">
+              <div class="video">
+              <input type="hidden" name="video_val" id="video_val" value="{{videoParam.video}}">
+               <div id="myElement">Loading the player...</div>
+                
+              </div>
+            <div class="slideshow-content ">
+              <p>{{ videoParam.description }} - {{videoParam.upload_date}}</p>
+            </div>
+          </div>
+          <!--Slideshow Videos End-->
+
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">Around The Web</div>
+            <div class="module-inner">
+              {% for n in worldnews %}
+                <div class="row divider">
+                  <a class="news" href="/n/{{n.id}}">{{n.description}}</a><span class="uploaded-date">{{n.upload_date}}</span>
+                </div>
+              {% endfor %}
+              <a class="more" href="/p/World?page=1">More</a>
+            </div>
+          </div>
+          <!--AROUND THE WEB End-->
+
+          <div class="module">
+            <div class="module-title">Trending Videos</div>
+            <div class="module-inner paddingR_o">
+              <div class="trending-videos">
+              {% for lvid in trendingvideos %}
+                <div class="width50">
+                  <span class="gallerythumb">
+                    <a href="/v/{{lvid.id}}">
+                      <img src="http://img1.contentapi.ws/{{lvid.thumb_image}}"/>
+                      <img class="play" src="/images/play-icon.png">
+                      <p class="duration small">{{lvid.duration}} s</p>
+                    </a>
+                  </span>
+                  <span class="gallery-content">
+                    <p>{{lvid.title}} <span class="small">--Reuters</span></p><span class="uploaded-date"> {{lvid.upload_date}}</span>
+                  </span>
+                </div>
+              {% endfor %}
+                <a class="more" href="/videos?p=1">More Videos</a>              
+              </div>
+            </div>
+          </div>
+          <!--Trending Videos End-->
+          
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">US News</div>
+            <div class="module-inner">
+            {% for n in usnews %}
+              <div class="row divider">
+                <a class="news" href="/n/{{n.id}}">{{n.description}}</a><span class="uploaded-date">{{n.upload_date}}</span>
+              </div>
+            {% endfor %}
+              <a class="more" href="/p/US?page=1">More</a>
+            </div>
+          </div>
+          <!--US News End-->
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">US Politics</div>
+            <div class="module-inner">
+            {% for n in politicsnews %}
+              <div class="row divider">
+                <a class="news" href="/n/{{n.id}}">{{n.description}}</a><span class="uploaded-date">{{n.upload_date}}</span>
+              </div>
+            {% endfor %}
+              <a class="more" href="/p/Politics?page=1">More</a>
+            </div>
+          </div>
+          <!--Politics End-->
+
+          <!--Weird News End-->
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">Entertainment</div>
+            <div class="module-inner">
+            {% for n in entertainmentnews %}
+              <div class="row divider">
+                <a class="news" href="/n/{{n.id}}">{{n.description}}</a><span class="uploaded-date">{{n.upload_date}}</span>
+              </div>
+            {% endfor %}
+              <a class="more" href="/p/Entertainment?page=1">More</a>
+            </div>
+          </div>
+          <!--Entertainment End-->
+
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">Markets</div>
+            <div class="module-inner">
+            {% for n in marketnews %}
+              <div class="row divider">
+                <a class="news" href="/n/{{n.id}}">{{n.description}}</a><span class="uploaded-date">{{n.upload_date}}</span>
+              </div>
+            {% endfor %}
+              <a class="more" href="/p/Markets?page=1">More</a>
+            </div>
+          </div>
+          <!--Markets End-->
+
+          <div class="clear"></div>
+          <div class="module">
+            <div class="module-title">Money</div>
+            <div class="module-inner">
+            {% for n in moneynews %}
+              <div class="row divider">
+                <a class="news" href="/n/{{n.id}}">{{n.description}}</a><span class="uploaded-date">{{n.upload_date}}</span>
+              </div>
+            {% endfor %}
+              <a class="more" href="/p/Money?page=1">More</a>
+            </div>
+          </div>
+          <!--Money End-->
+
+          
+        </aside>
+
+        <aside class="width30 margin20_L">
+          <div class="rt-tpadd">
+            <!--/* Switch v3.8.5 - Nultv.com - Nultv.com - 300x250 - 300x250 */-->
+            <script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=300X250&cwpid=557677&cwwidth=300&cwheight=250&cwpnet=1&cwtagid=197729"></script>
+
+          </div>
+          <div class="module margin20_T">
+            <div class="module-title">Top News</div>
+            <div class="module-inner">
+            {% for ng in politicsnews %}
+              <div class="videorow">
+                <span class="thumb">
+                  <img src="http://img1.contentapi.ws/{{ ng.thumb_image }}"/>
+                </span>
+                <span class="gallery-content">
+                  <p>{{ ng.title }}</p><span class="uploaded-date">{{ng.upload_date}}</span>
+                </span>
+              </div>
+              {% endfor %}
+              <div class="videorow">
+                
+              </div>
+            </div>
+          </div>
+          <!--Top News End-->
+
+          <div class="rt-btadd margin20_T">
+            <!--/* Switch v3.8.5 - Nultv.com - Nultv.com - 300x250 - 300x250 */-->
+            <script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=300X250&cwpid=557677&cwwidth=300&cwheight=250&cwpnet=1&cwtagid=197729"></script>
+
+          </div>
+          
+          <div class="clear"></div>
+
+          <div class="module popular">
+            <div class="module-title">Latest Videos</div>
+            <div class="module-inner">
+            {% for lvid in latestvideos %}
+              <div class="row videorow">
+                <span class="width40">
+                  <a href="/v/{{lvid.id}}">
+                    <img src="http://img1.contentapi.ws/{{lvid.thumb_image}}" width="97" height="75"/>
+                    <img class="smallplay" src="/images/play-icon.png">
+                  </a>
+                </span>
+                <span class="width60">
+                  <p><a href="/v/{{lvid.id}}">{{lvid.title}}</a></p><span class="uploaded-date">{{lvid.upload_date}}</span>
+                </span>
+              </div>
+            {% endfor %}
+              <a href="/videos?p=1" class="more">More Stories</a>
+            </div>
+          </div>
+          <!--Popular Stories End-->
+          <div class="clear"></div>
+          <div class="module popular">
+            <!--/* Switch v3.8.5 - Nultv.com - Nultv.com - 160x600 - 160x600 */-->
+            <script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=160X600&cwpid=557677&cwwidth=160&cwheight=600&cwpnet=1&cwtagid=197728"></script>
+
+          </div>
+           
+
+        </aside>
+      </article>
+      <!--Article End-->
+
+      <div class="banner">
+        <!--/* Switch v3.8.5 - Nultv.com - Nultv.com - 728x90 - 728x90 */-->
+        <script src="http://tag.contextweb.com/TagPublish/getjs.aspx?action=VIEWAD&cwrun=200&cwadformat=728X90&cwpid=557677&cwwidth=728&cwheight=90&cwpnet=1&cwtagid=197730"></script>
+      </div>
+      <!--Bottom-add End-->
+    </div>
+
+    <footer>
+      <div class="container">
+        <summary>
+          <span class="left">
+            Copyright &copy;  {% now "Y" %}  NulTv All Rights Reserved | <a href=/termsandconditions>Terms & Conditions</a>
+            
+          </span>
+          <span class="right">
+            <span class="left margin5">Follow Us on:</span>
+            <a target="_blank" href="https://twitter.com/nultvdotcom"><img src="/images/twitter.png"/></a>
+            <a target="_blank" href="https://www.facebook.com/pages/Nultvcom/558787350855075"><img src="/images/facebook.png"/></a>
+          </span>
+        </summary>
+      </div>
+    </footer>
+    <!--Footer End-->
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-43119651-4', 'nultv.com');
+	  ga('send', 'pageview');
+	</script>
+  </body>
+</html>

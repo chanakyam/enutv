@@ -1,0 +1,12 @@
+{application, enutv,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { enutv_app, []}},
+  {env, []}
+ ]}.
