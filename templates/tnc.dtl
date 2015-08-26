@@ -142,7 +142,7 @@
               {% for ng in politicsnews %}
               <div class="videorow">
                 <span class="thumb">
-                  <img src="http://img1.contentapi.ws/{{ ng.thumb_image }}"/>
+                  <img src="http://newscdn.lycos.com/{{ ng.thumb_image }}"/>
                 </span>
                 <span class="gallery-content">
                   <p>{{ ng.title }}</p><span class="uploaded-date">{{ ng.upload_date }} </span>
@@ -167,7 +167,7 @@
               <div class="row videorow">
                 <span class="width40">
                   <a href="/v/{{lvid.id}}">
-                    <img src="http://img1.contentapi.ws/{{lvid.thumb_image}}" width="97" height="75"/>
+                    <img src="http://newscdn.lycos.com/world_news/{{lvid.thumb_image}}" width="97" height="75"/>
                     <img class="smallplay" src="/images/play-icon.png">
                   </a>
                 </span>

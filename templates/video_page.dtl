@@ -86,7 +86,7 @@
               {%for ng in politicsnews %}
               <div class="videorow">
                 <span class="thumb">
-                  <img src="http://img1.contentapi.ws/{{ ng.thumb_image }}"/>
+                  <img src="http://newscdn.lycos.com/{{ ng.thumb_image }}"/>
                 </span>
                 <span class="gallery-content">
                   <p>{{ ng.title }}</p><span class="uploaded-date">{{ ng.upload_date }}</span>
